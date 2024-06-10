@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<title>Lithium Roadmap</title>
+	</head>
+	<nav>
+		<ul>
+			<li><a href="index.html#top">Home</a></li>
+			<li><a href="index.html#projects">Projects</a></li>
+			<li><a href="index.html#contact">Contact</a></li>
+		</ul>
+	</nav>
+	<body>
+		<h1 id="top">Lithium</h1>
+		<h3>Directory</h3>
+		<p>
+			<a href="#about" class="body-link">&darr; About</a><br>
+			<a href="#roadmap" class="body-link">&darr; Roadmap</a><br>
+			<a href="#examples" class="body-link">&darr; Examples</a><br>
+			<a href="#screenshots" class="body-link">&darr; Screenshots</a>
+		</p>
+
+		<h1 id="about">About</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+
+			<h2>General</h2>
+			<p>
+				Lithium is a 3D game engine for 64-bit Windows written in C++ and uses OpenGL as its low-level<br>
+				rendering API.
+			</p>
+
+			<p>
+				The engine allows for modular development of a game meaning that programmers, texture artists,<br>
+				modelers, mappers, etc. will see few conflicts in their project during development due to the<br>
+				authoring tools provided by the engine and the modular design of the engine's internal code.
+			</p>
+
+			<p>
+				Complex scenes with many objects with high-quality lighting due to the deferred rendering pipeline,<br>
+				LODs for objects in the scene, and other graphics pipeline optimizations.
+			</p>
+
+			<p>
+				Currently, the engine is undergoing a major refactor to improve the engine's design, performance,<br>
+				and usability. This includes a new structure for how objects and behavior are handled and a suite<br>
+				of commonly used data structures and behavior across the different engine modules and projects.<br>
+				This includes a custom memory allocator, allowing both managed and unmanaged memory, custom<br>
+				containers, and synchronization primitives. This refactor is aimed to be comleted somewhere<br>
+				in mid-May. As a result of this refactor, some of the information below may become outdated as<br>
+				structures are constantly in flux.
+			</p>
+
+			<p>
+				<b>Update May 7, 2023 6:07 PM:</b> Compiling shaders no longer crashes the program!
+			</p>
+
+			<p><img src="imgs/shaders.PNG"></p>
+
+			<p>
+				<b>Update April 24, 2023 8:38 PM:</b> No more compiler errors (or warnings) from the refactor!
+			</p>
+
+			<p><img src="imgs/noerrors.PNG"></p>			
+
+			<h2>Technical</h2>
+			<p>
+				<ul style="margin-left: 35px;">
+					<li>Runs on GPUs supporting at least OpenGL 4.0</li>
+					<li>Deferred HDR rendering pipeline</li>
+					<li><a class="body-link" href="https://en.wikipedia.org/wiki/Physically_based_rendering" target="null">Physically-based lighting</a> model
+						<ul style="margin-left: 20px; font-size: 11pt;">
+							<li>Albedo</li>
+							<li>Emissive</li>
+							<li>Roughness</li>
+							<li>Metallic</li>
+							<li>Ambient Occlusion</li>
+							<li>Normal</li>
+							<li>Irrandiance</li>
+						</ul>
+					</li>
+					<li>Cascaded Shadow Mapping</li>
+					<li>Postprocessing Support
+						<ul style="margin-left: 20px; font-size: 11pt;">
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Bloom_(shader_effect)" target="null">Bloom</a>
+								and <a class="body-link" href="https://en.wikipedia.org/wiki/Tone_mapping" target="null">Tonemapping</a>
+							</li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Temporal_anti-aliasing" target="null">Temporal Antialising (TAA)</a></li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Fast_approximate_anti-aliasing" target="null">Fast Aproximate Antialiasing (FXAA)</a></li>
+							<li>Screen-Space Reflections (SSR)</li>
+							<li>Screen-Space <a class="body-link" href="https://en.wikipedia.org/wiki/Crepuscular_rays" target="null">Crepuscular Rays</a></li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Screen_space_ambient_occlusion" target="null">Screen-Space Ambient Occlusion (SSAO)</a></li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Motion_blur" target="null">Motion Blur</a></li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Volumetric_lighting" target="null">Volumetric Lighting</a></li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Unsharp_masking" target="null">Unsharp masking</a></li>
+						</ul>
+					</li>
+					<li>Rendering pipeline optimizations
+						<ul style="margin-left: 20px; font-size: 11pt;">
+							<li>Model and Terrain LODs</li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Bounding_volume_hierarchy" target="null">Bounding-Volume Heirarchies</a>
+								and Frustum Culling
+							</li>
+							<li>Alpha-testing and <a class="body-link" href="https://en.wikipedia.org/wiki/Ordered_dithering" target="null">ordered dithering</a></li>
+							<li>Instanced rendering (on billboards)</li>
+							<li><a class="body-link" href="https://en.wikipedia.org/wiki/Texture_compression" target="null">Texture compression</a></li>
+						</ul>
+					</li>
+					<li>C++ Scripting API</li>
+					<li>Modular engine design</li>
+					<li>Dynamic Resource System
+						<ul style="margin-left: 20px; font-size: 11pt;">
+							<li>Can be controlled without modifying native code</li>
+							<li>Supports hotloading, so any resource can be reloaded without needing to restart.</li>
+						</ul>
+					</li>
+					<li>Shader and Material System
+						<ul style="margin-left: 20px; font-size: 11pt;">
+							<li>Material files bound to GLSL shaders</li>
+							<li>Material parameters directly coorespond to GLSL uniforms</li>
+							<li>Objects are not associated with shaders, but instead materials</li>
+							<li>A scripting language to animate material parameters</li>
+						</ul>
+					</li>
+					<li>Authoring Tools
+						<ul style="margin-left: 20px; font-size: 11pt;">
+							<li>ltfio - Author texture and cubemap files</li>
+							<li>lmfutil - Author 3D models from common formats</li>
+							<li>lpak - Create compressed resource archives</li>
+							<li>lmapc - Compile map source files into a binary format</li>
+							<li>runscript - REPL for material the scripting language</li>
+							<li>liauth - Manage full Lithium projects</li>
+						</ul>
+					</li>
+					<li><a class="body-link" href="lithium_potato.html">Potato mode!</a></li>
+				</ul>
+
+				<br>
+				<p>
+					The engine uses Freetype 2, libpng, expat, zlib, and glad for third-party libraries.
+				</p>
+
+				<p>
+					The Windows API is used for all performance-critical areas of the engine, such as the the<br>
+					window. A window is created manually using CreateWindowExA and its events are managed<br>
+					manually to remove as much function call overhead as possible while still being fairly<br>
+					easy to use by an end-user.
+				</p>
+
+				<p>
+					In the future, I may plan to switch to using my own cross-platform windowing system, mtgl,<br>
+					which can be found on <a href="https://github.com/evrhel/mtgl" class="body-link">GitHub</a>.
+				</p>
+			</p>
+		</div>
+
+		<h1 id="roadmap">Roadmap</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+			<h2>Future Features</h2>
+			<ul style="margin-left: 35px;">
+				<li>Materials create distinct shader programs
+					<ul style="margin-left: 20px; font-size: 11pt;">
+						<li>Constantly setting uniforms can be slow</li>
+						<li>Negative impact on memory and load times</li>
+					</ul>
+				</li>
+				<li>Engine Editor</li>
+				<li>Additional Optimization Methods</li>
+					<ul style="margin-left: 20px; font-size: 11pt;">
+						<li>Occluders/Portals</li>
+						<li>Better Balancing Between GPU/CPU</li>
+						<li>Smarter Rendering Order of Objects</li>
+						<li>BSP Trees</li>
+						<li>Reduce Number of Vertex Array Binds</li>
+						<li>Reduce Number of Texture Binds</li>
+						<li>More Instanced Rendering/Object Batching</li>
+					</ul>
+				<li>Easier to use GUI API</li>
+				<li>Transparency Support in Deferred Pipeline</li>
+				<li>Vulkan Support</li>
+					<ul style="margin-left: 20px; font-size: 11pt;">
+						<li>Nvidia DLSS can be supported</li>
+					</ul>
+				<li>Easier Shader Programming</li>
+				<li>Physics</li>
+			</ul>
+		</div>
+
+		<h1 id="examples">Examples</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+
+			<h3>Example Game Script</h3>
+
+				<p>
+					This script creates a new Point Light when a map loads then animates its x-position using sine.
+				</p>
+
+				<em><code>scripts.h</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;game_script.h&gt;</span></span>
+					<span class="tr"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;engine.h&gt;</span></span>
+					<span class="tr"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;render_main.h&gt;</span></span>
+					<span class="tr"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;render_light.h&gt;</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">using namespace</span> lithium;</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">class</span>&zwnj; <span class="type">MyScript</span> : <span class="keyword">public</span>&zwnj; <span class="type">Script</span> {</span>
+					<span class="tr"><span class="th"></span><span class="keyword">private</span>:</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">ManagedMemory</span>&lt;<span class="type">PointLight</span>&gt; m_light; <span class="comment">// auto-initializes to null</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">public</span>:</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// overriden functions, all optional</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual bool</span>&zwnj; <span class="function">init</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual void</span>&zwnj; <span class="function">start</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual void</span>&zwnj; <span class="function">update</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual void</span>&zwnj; <span class="function">unload</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
+				<br>
+
+				<em><code>myscript.cpp</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">"scripts.h"</span><code></code></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">bool</span>&zwnj; <span class="type">MyScript</span>::<span class="function">init</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called when engine initializes</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">return</span>&zwnj; <span class="primitive">true</span>; <span class="comment">// success</span></span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">void</span>&zwnj; <span class="type">MyScript</span>::<span class="function">start</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called when when the map loads</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">RenderLightHandler</span> *rLightHandler = ENGINE-><span class="function">renderLightHandler</span>();</span>
+					<span class="tr"><span class="th"></span>   m_light = rLightHandler-><span class="function">createPointLight</span>();</span>
+					<span class="tr"><span class="th"></span>   m_light->diffuse = <span class="type">Color3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>);</span>
+					<span class="tr"><span class="th"></span>   m_light->enabled = <span class="primitive">true</span>;</span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">void</span>&zwnj; <span class="type">MyScript</span>::<span class="function">update</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called each frame</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// animates the position of the light</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">float</span> sinTime = <span class="function">sinf</span>(ENGINE-><span class="function">time</span>());</span>
+					<span class="tr"><span class="th"></span>   m_light->position = <span class="type">Vector3</span>(sinTime * <span class="number">10.0f</span>, <span class="number">10.0f</span>, <span class="number">0.0f</span>);</span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">void</span>&zwnj; <span class="type">MyScript</span>::<span class="function">unload</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called when the map unloads</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// remove the light we created, or it will persist in next map</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">RenderLightHandler</span> *rLightHandler = ENGINE-><span class="function">renderLightHandler</span>();</span>
+					<span class="tr"><span class="th"></span>   rLightHandler-><span class="function">removePointLight</span>(m_light);</span>
+					<span class="tr"><span class="th"></span>   m_light = <span class="macro">nulled</span>(<span class="type">PointLight</span>); <span class="comment">// good practice</span></span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
+			<br>
+			<h3>Example Material Script</h3>
+
+				<p>
+					Script is used to animate water outside C++ code and is referenced within the water material file,<br>
+					but can be used to animate any material.
+				</p>
+
+				<em><code>animate_water.psc</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="comment">; $tpos is an output variable which controls texture offset</span><code></code></span>
+					<span class="tr"><span class="th"></span><span class="keyword">import</span> $tpos <span class="keyword">from</span> <span class="type">Lithium.Texture</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="comment">; $time is an input variable equal to the number of seconds the map has been running</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">import</span> $time <span class="keyword">from</span> <span class="type">Lithium.Engine</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="comment">; translate texture proportional to map uptime</span></span>
+					<span class="tr"><span class="th"></span>$tpos: <span class="function">vec2</span>(<span class="function">div</span>($time, <span class="number">16</span>), <span class="function">div</span>($time, <span class="number">8</span>))</span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
+				<br>
+				<p>
+					The water material that uses this script.
+				</p>
+
+				<em><code>water.lmt</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span>&lt;<span class="keyword">material</span>&zwnj; <span class="type">version</span>=<span class="string">"1.0"</span>&gt;</span><code></code></span>
+
+					<span class="tr"><span class="th"></span></span>
+
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">&lt;!-- What shader this material should use --&gt;</span></span>
+					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">shader</span>&zwnj; <span class="type">shader</span>=<span class="string">"GBufferGenericDeferred"</span>&gt;</span>
+
+						<span class="tr"><span class="th"></span>&zwnj;      <span class="comment">&lt;!-- Tell the shader to use these textures as input --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">albedo</span>&zwnj; <span class="type">base</span>=<span class="string">"color"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">metallic</span>&zwnj; <span class="type">base</span>=<span class="string">"metallic"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">roughness</span>&zwnj; <span class="type">base</span>=<span class="string">"roughness"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normal</span>&zwnj; <span class="type">base</span>=<span class="string">"normal"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normalIntensity</span>&zwnj; <span class="type">base</span>=<span class="string">"0.1"</span>/&gt;</span>
+
+					<span class="tr"><span class="th"></span>   &lt;/<span class="keyword">shader</span>&gt;</span>
+
+					<span class="tr"><span class="th"></span></span>
+
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">&lt;!-- Tie script(s) to this material --&gt;</span></span>
+					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">proxies</span>&gt;</span>
+
+						<span class="tr"><span class="th"></span>&zwnj;      <span class="comment">&lt;!-- Binds the source textures to be controlled by the target script --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">proxy</span>&zwnj; <span class="type">target</span>=<span class="string">"albedo metallic roughness normal"</span>&zwnj; <span class="type">target</span>=<span class="string">"nature/animate_water"</span>/&gt;</span>
+
+					<span class="tr"><span class="th"></span>   &lt;/<span class="keyword">proxies</span>&gt;</span>
+
+					<span class="tr"><span class="th"></span></span>
+
+					<span class="tr"><span class="th"></span>&lt;/<span class="keyword">material</span>&gt;</span>
+
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
+				<br>
+				<p><a href="#top" class="body-link">&uarr; Top</a></p>
+		</div>
+
+		<h1 id="screenshots">Screenshots</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+			<p><em>Physically-Based Rendering Model</em></p>
+			<p><img width="40%" height="40%" src="imgs/pbr.png"></p>
+			<p><em>Large Open-World Environments</em></p>
+			<p><img width="40%" height="40%" src="imgs/new_terrain.png"></p>
+			<p><em>Water reflecting a house, using Screen-Space Reflections</em></p>
+			<p><img width="40%" height="40%" src="imgs/new_water.png"></p>
+			<p><em>Supported antialiasing modes</em></p>
+			<p><img src="imgs/aa.png"></p>
+			<p><em>Example usage of the scripting REPL</em></p>
+			<p><img width="45%" height="45%" src="imgs/repl.png"></p>
+		</div>
+
+		<div>
+			<em><p style="text-align: center;">&copy; 2024 Ethan Vrhel</p></em>
+			<pre><p style="text-align: center;"><a class="body-link" href="https://github.com/evrhel/evrhel.github.io" target="null">view on github</a></p></pre>
+		</div>
+	</body>
+</html>

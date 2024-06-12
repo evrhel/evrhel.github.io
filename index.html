@@ -19,9 +19,11 @@
 		<div id="top">
 			<h1 id="#top">Hello!</h1>
 			<div class="content">
-				<p>I'm Ethan, a senior at the University of Washington in Seattle, and I am majoring in Computer Science.</p>
-				<p>I'm especially interested in computer graphics, programming languages, and low-level programming constructs.</p>
-				<p>I plan to graduate in 2024.</p>
+				<p>
+					I'm Ethan, a doctaral student at Oregon State University. I'm interested mainly in computer<br>
+					graphics, but I enjoy working on a variety of projects as well. I graduated from the University<br>
+					of Washington in Seattle with a BS in Computer Science in 2024.
+				</p>
 			</div>
 		</div>
 
@@ -65,8 +67,88 @@
 				<a href="lithium_roadmap.html" class="body-list">Read More</a>
 			</div>
 
-			<h2 id="matrixutil">MatrixUtil</h2>
+			<h2 id="lysys">lysys</h2>
+			<div class="content">
+				<p>
+					lysys (<b>Ly</b>thium <b>Sys</b>tem) is a C library that provides a cross platform abstraction layer for<br>
+					OS-specific functionality. Its original purpose was to simplify the process of writing code within the<br>
+					Lythium engine, but it has since been expanded to be a standalone library.
+				</p>
 
+				<p>
+					lysys supports abstractions for the following:
+
+					<ul style="margin-left: 35px;">
+						<li>Synchronous and asynchronous file I/O</li>
+						<li>File creation, deletion, and renaming</li>
+						<li>Anonymous and named pipes</li>
+						<li>Clipboard interaction</li>
+						<li>Memory protection management</li>
+						<li>Memory mapped files</li>
+						<li>Process creation and management</li>
+						<li>Cryptographically secure random number generation</li>
+						<li>Shell interaction</li>
+						<li>File information retrieval (e.g. file size, file type)</li>
+						<li>Directory creation, deletion, and listing</li>
+						<li>File system snapshotting</li>
+						<li>File system monitoring</li>
+						<li>Locks and condition variables</li>
+						<li>System performance monitoring</li>
+						<li>Battery status monitoring</li>
+						<li>Thread creation and management</li>
+						<li>Thread local storage</li>
+						<li>Fiber creation and management</li>
+						<li>High resolution timers</li>
+						<li>Common directory retrieval (e.g. user home directory, documents)</li>
+					</ul>
+				</p>
+
+				<a href="https://github.com/evrhel/lysys" target="null" class="body-list">GitHub Repository</a>
+			</div>
+
+			<h2 id="libscratch3">libscratch3</h2>
+			<div class="content">
+				<p>
+					libscratch3 is a cross-platform C++ library that provides a compiler and runtime for the <a href="https://scratch.mit.edu/" class="body-link" target="null">Scratch 3</a><br>
+					programming language, developed by the <a href="https://www.media.mit.edu/" class="body-link" target="null">MIT Media Lab</a>. Scratch is a block-based programming<br>
+					language aimed at teaching programming concepts to children. The project provides an additional<br>
+					C API if desired.
+				</p>
+
+				<p>
+					libscratch3 reads <code style="padding-left: 0px">.sb3</code> files, the file format used by Scratch 3, and compiles the blocks info<br>
+					an intermediate bytecode format, readable by the libscratch3 runtime. The runtime executes the<br>
+					bytecode and displays the output in a window, allowing the user to interact with the Scratch project.
+				</p>
+
+				<p>
+					The renderer is hardware accelerated using OpenGL, supporting 2D sprites, text, and vector<br>
+					graphics. Due to the simple nature of Scratch's visuals, the renderer has very low overhead, with<br>
+					the performance of a project mainly dependent on the complexity of the Scratch project's logic.
+				</p>
+
+				<p>
+					Scripts execute very fast, due to the use of the custom bytecode over interpreting the Scratch<br>
+					blocks directly and optimizations performed at compile time that cannot be done in the Scratch<br>
+					editor due to the user's ability to modify the project at any time.
+				</p>
+
+				<p>
+					The runtime also features a debugger, allowing live introspection of the project's state, including<br>
+					variable values, running scripts, resource inspection, performance monitoring, and the ability to<br>
+					trigger events manually.
+				</p>
+
+				<p>
+					This project is still in development, with some described features being in development branches.<br>
+					Also check out my <a href="https://scratch.mit.edu/users/evrhel/" class="body-link" target="null">Scratch profile</a> for some of my Scratch projects. Most of them will likely<br>
+					not be runnable with libscratch3, as most use features that are not yet implemented.
+				</p>
+
+				<a href="https://github.com/evrhel/libscratch3" target="null" class="body-list">GitHub Repository</a>
+			</div>
+
+			<h2 id="matrixutil">MatrixUtil</h2>
 			<div class="content">
 				<p>
 					MatrixUtil is a library written in C++ to handle vector, matrix, and quaternion calculations.<br>
@@ -111,111 +193,21 @@
 				<a href="https://github.com/evrhel/MatrixUtil" target="null" class="body-list">GitHub Repository</a>
 			</div>
 
-			<h2 id="mtgl">mtgl</h2>
-
-			<div class="content">
-				<p>
-					mtgl (short for <b>M</b>ulti<b>t</b>hreaded Open<b>GL</b>) is an in-development Window and OpenGL abstraction library.<br>
-					There is a heavy focus on making multithreaded OpenGL rendering as easy as possible. The library is<br>
-					written in C and Objective-C and can be used on both Windows and macOS. The library provides a simple<br>
-					interface for creating windows and OpenGL contexts as well as providing an input system, allowing the<br>
-					capture of window events alongside keyboard, mouse, and joystick/controller input.<br>
-				</p>
-
-				<p>
-					Due to the realtime responsiveness that is expected of games, slowdowns in the rendering thread<br>
-					can be detrimental to the user experience. Multithreading can be used to mitigate this issue by<br>
-					offloading slow work to another thread.
-				</p>
-
-				<p>
-					However, the issue arrives when some work you did on another thread needs to be used on the rendering<br>
-					thread. OpenGL is not thread safe, so synchronization is required. The place where you synchronize<br>
-					matters so that the state of OpenGL states consistent. This is where mtgl comes in. The most powerful<br>
-					feature of mtgl is the ability to synchronize on an OpenGL context itself. This allows the context to<br>
-					always be in a consistent state, and allows the user to perform OpenGL calls on any thread.
-				</p>
-
-				<p>
-					One of the most obvious uses of this would be when needing to load information from the disk. This<br>
-					operation is very slow and reading it on the rendering thread would cause a noticeable hitch. Instead,<br>
-					we offload the disk operation to another thread. Once the data is loaded, we can then synchronize on<br>
-					the OpenGL context and upload the data to the GPU. This allows the rendering thread to continue<br>
-					running while the data is being loaded, and the user will not notice any hitches.<br>
-				</p>
-
-				<a href="https://github.com/evrhel/mtgl" target="null" class="body-list">GitHub Repository</a>
-			</div>
-
-			<h2 id="lscript">lscript</h2>
-
-			<div class="content">
-				<p>
-				 	lscript is an in-development statically typed scripting language. The language supports both<br>
-				 	procedural and object-oriented programming. The source code compiles to a bytecode which is read by the<br>
-				 	virtual machine which features many features similar to the Java Virtual Machine. The LScript Virtual<br>
-				 	Machine, compiler, and decompiler are all written entirely in C and x86-64 Assembly.
-			 	</p>
-
-			 	<p>
-					The virtual machine provides features such as a set of library functions for developers to use, as well<br>
-					as a native interface so developers can write native C or C++ functions and link to an LScript function. 
-				</p>
-
-				<p>lscript 2 is in development at the moment, which improves usability.</p>
-
-				<em><p>Example lscript class that writes to a file</p></em>
-
-				<em><code>Main.lasm</code></em><br><br>
-				<pre class="code">
-					<span class="tr first-row"><span class="th"></span><span class="keyword">using</span>&zwnj; <span class="type">lscript.io</span><code></code></span>
-					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>&zwnj;<span class="comment"># Implicitly extends lscript.lang.Object</span></span>
-					<span class="tr"><span class="th"></span>&zwnj;<span class="keyword">class</span>&zwnj; <span class="type">Main</span></span>
-					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment"># Program entry point</span></span>
-					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">function static void</span>&zwnj; <span class="function">main</span>(<span class="keyword">objectarray</span> <span class="type">String</span> args)</span>
-					<span class="tr"><span class="th"></span>&zwnj;      <span class="comment"># Create a lscript.io.FileOutputStream targeting test.txt</span></span>
-					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">object</span>&zwnj; <span class="type">FileOutputStream</span> fout</span>
-					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">seto</span>&zwnj; fout <span class="keyword">new</span>&zwnj; <span class="type">FileOutputStream</span>(<em>L</em><span class="type">String</span>;) <span class="string">"test.txt"</span></span>
-					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>&zwnj;      <span class="comment"># Write "Hello World!" to the file and close</span></span>
-					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">dynamic_call</span>&zwnj; fout.<span class="function">print</span>(<em>L</em><span class="type">String</span>;) <span class="string">"Hello World!"</span></span>
-					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">dynamic_call</span>&zwnj; fout.<span class="function">close</span>()</span>
-					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">ret</span></span>
-					<span class="tr"><span class="th"></span></span>
-				</pre>
-				<em><p style="padding-top: 10px; padding-bottom: 5px;">To compile and run:</p></em>
-				<pre class="inline-code">lsasm Main.lasm</pre>
-				<pre class="inline-code">lscript Main.lscript</pre>
-
-				<a href="https://github.com/evrhel/lscript" target="null" class="body-list">GitHub Repository</a>
-			</div>
-
-			<h2 id="hexview">hexview</h2>
-
-			<div class="content">
-				<p>
-					hexview is a cross-platform, command-line binary file viewer. It supports seeking through files<br>
-					and interpreting groups of bytes as many common data types, such as larger width integers, both<br>
-					signed and unsigned, floating point numbers, and strings. Utilities are avaliable within the<br>
-					viewer to make navigating the file easier.
-				</p>
-
-
-				<p><em>hexview running in Windows command prompt</em></p>
-				<img style="margin-left: 10px; border: 5px solid #252525; border-style: inset;" src="imgs/hexview.png" alt="hexview in DOS command prompt">
-
-				<a href="https://github.com/evrhel/hexview" target="null" class="body-list">GitHub Repository</a>
-			</div>
-
 			<h2>Minor Projects</h2>
 
 			<p>Some other minor or incomplete projects I may or may not return to in the future.</p>
 
 			<div class="content">
 				<ul style="margin-left: 35px;">
+					<li>
+						<a class="body-link" href="https://github.com/evrhel/mtgl" target="null">mtgl</a> - A multithreaded OpenGL abstraction library.
+					</li>
+					<li>
+						<a class="body-link" href="https://github.com/evrhel/hexview" target="null">hexview</a> - A cross-platform, command-line binary file viewer.
+					</li>
+					<li>
+						<a class="body-link" href="https://github.com/evrhel/lscript" target="null">lscript</a> - A statically typed scripting language.
+					</li>
 					<li>
 						<a class="body-link" href="https://github.com/evrhel/Java-BSP" target="null">Java-BSP</a> - A Java implementation of the Binary Space Partitioning algorithm.
 					</li>
